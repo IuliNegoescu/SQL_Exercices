@@ -47,16 +47,34 @@ CREATE TABLE Orders
     ID_Order INTEGER,
     Product TEXT,
     Piece INTEGER,
-    Brand TEXT
+    Brand TEXT,
+    User_Id INTEGER
 );
-INSERT INTO Orders(ID_Order, Product, Piece, Brand)
+INSERT INTO Orders(ID_Order, Product, Piece, Brand,User_Id)
 VALUES
-   ( 1,'Prafum',1,'Avon'),
-    (2,'Rimel', 4,'Sephora'),
-    (3,'Deodorant', 10,'Nivea');
+   ( 1,'Prafum',1,'Avon',1),
+    (2,'Rimel', 4,'Sephora',2 ),
+    (3,'Deodorant', 10,'Nivea',2);
 
 SELECT * FROM Orders;
 
+--Inner Join--
+SELECT ID,Users.Name
+FROM Users
+INNER JOIN Orders
+ON Users.ID = Orders.ID_Order;
+
+--Left Join--
+SELECT Users.Name,Users.ID
+FROM Users
+LEFT JOIN Orders
+ON Users.ID = Orders.User_Id;
+
+--Right Join--
+Select Users.Name, Users.ID,Orders.Brand,Orders.Product
+FROM Users
+RIGHT JOIN Orders
+ON Users.ID = Orders.User_Id;
 --Am terminat de invatat syntaxa pentru SQL--
 
 --Ca sa vad datele din tabel trebuie sa selectez numai linia 10
