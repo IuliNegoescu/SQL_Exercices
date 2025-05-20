@@ -35,9 +35,29 @@ FROM Users;
 
   SELECT MAX(Age),Name
 FROM Users;
-*/
 
+*/
 SELECT * FROM Users;
+
+DROP TABLE IF EXISTS Orders;
+
+--Second table--
+CREATE TABLE Orders
+(
+    ID_Order INTEGER,
+    Product TEXT,
+    Piece INTEGER,
+    Brand TEXT
+);
+INSERT INTO Orders(ID_Order, Product, Piece, Brand)
+VALUES
+   ( 1,'Prafum',1,'Avon'),
+    (2,'Rimel', 4,'Sephora'),
+    (3,'Deodorant', 10,'Nivea');
+
+SELECT * FROM Orders;
+
+--Am terminat de invatat syntaxa pentru SQL--
 
 --Ca sa vad datele din tabel trebuie sa selectez numai linia 10
 --Daca selectez toate liniile de cod nu voi vedea datele din tabel
